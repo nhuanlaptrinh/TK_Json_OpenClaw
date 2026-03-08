@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "profiles": {
+    "google:default": {
+      "type": "api_key",
+      "provider": "google",
+      "key": "AIzaSyDR67LIDyqpJjtcfkxgnBxmnvR8tfVNIjM"
+    },
+    "openai:default": {
+      "type": "api_key",
+      "provider": "openai",
+      "key": "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"
+    }
+  },
+  "usageStats": {
+    "openai:default": {
+      "lastUsed": 1772524369360,
+      "errorCount": 0
+    },
+    "google:default": {
+      "lastUsed": 1772524000392,
+      "errorCount": 0
+    }
+  }
+}

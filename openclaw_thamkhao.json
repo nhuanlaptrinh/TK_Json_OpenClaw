@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.15",
+    "lastTouchedAt": "2026-02-16T14:15:31.402Z"
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      },
+      "openai:default": {
+        "provider": "openai",
+        "mode": "api_key"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/gpt-4.1-mini",
+        "fallbacks": [
+          "google/gemini-2.5-flash",
+          "google/gemini-3.1-pro-preview",
+          "google/gemini-2.5-pro-preview"
+        ]
+      },
+      "models": {
+        "google/gemini-3-flash-preview": {
+          "alias": "gemini-flash"
+        },
+        "google/gemini-2.0-flash": {
+          "alias": "gemini-flash"
+        }
+      },
+      "workspace": "C:\\Users\\nhuan\\.openclaw\\workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "workspace": "C:\\Users\\nhuan\\.openclaw\\workspace",
+        "identity": {
+          "name": "Trợ Lý A.I",
+          "emoji": "🤖"
+        }
+      },
+      {
+        "id": "phantichhd",
+        "workspace": "C:\\Users\\nhuan\\.openclaw\\workspace_phantichhd",
+        "identity": {
+          "name": "Phân Tích Hình ảnh",
+          "emoji": "📷"
+        }
+      },
+      {
+        "id": "contentpython",
+        "workspace": "C:\\Users\\nhuan\\.openclaw\\workspace_contentpython",
+        "identity": {
+          "name": "Content Khóa Python",
+          "emoji": "🐍"
+        }
+      },
+      {
+        "id": "trolytaowebnhanh_bot",
+        "workspace": "C:\\Users\\nhuan\\.openclaw\\workspace_trolytaowebnhanh",
+        "identity": {
+          "name": "Tạo Website Nhanh",
+          "emoji": "🌐"
+        }
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram",
+        "accountId": "main"
+      }
+    },
+    {
+      "agentId": "phantichhd",
+      "match": {
+        "channel": "telegram",
+        "accountId": "phantichhd"
+      }
+    },
+    {
+      "agentId": "contentpython",
+      "match": {
+        "channel": "telegram",
+        "accountId": "contentpython"
+      }
+    },
+    {
+      "agentId": "trolytaowebnhanh_bot",
+      "match": {
+        "channel": "telegram",
+        "accountId": "trolytaowebnhanh_bot"
+      }
+    }
+  ],
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "session": {
+    "store": "~/.openclaw/agents/{agentId}/sessions/sessions.json"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "ackReaction": "",
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "streamMode": "partial",
+      "accounts": {
+        "main": {
+          "dmPolicy": "pairing",
+          "botToken": "7952031884:AAEDqD6sdEDf9z_TjmYstomOQtWZXyT1Rio",
+          "groupPolicy": "open",
+          "streamMode": "partial"
+        },
+        "phantichhd": {
+          "dmPolicy": "pairing",
+          "botToken": "8543873854:AAGptGKWp6r0-daJmiZKy9FO_rPCqhL-4-E",
+          "groupPolicy": "open",
+          "streamMode": "partial"
+        },
+        "contentpython": {
+          "dmPolicy": "pairing",
+          "botToken": "8744582897:AAGaut2wKss8igcMuOSWb993dFYqIoZmntw",
+          "groupPolicy": "open",
+          "streamMode": "partial"
+        },
+        "trolytaowebnhanh_bot": {
+          "dmPolicy": "pairing",
+          "botToken": "8681603232:AAGn5CDEUptzmD1XMGuRdV5LvTB_GDp188k",
+          "groupPolicy": "open",
+          "streamMode": "partial"
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "chatbot"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "calendar.add",
+        "contacts.add",
+        "reminders.add"
+      ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}
