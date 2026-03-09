@@ -4,12 +4,12 @@
     "google:default": {
       "type": "api_key",
       "provider": "google",
-      "key": "AIzaSyDR67LIDyqpJjtcfkxgnBxmnvR8tfVNIjM"
+      "key": "api_google"
     },
     "openai:default": {
       "type": "api_key",
       "provider": "openai",
-      "key": "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"
+      "key": "api_openai"
     }
   },
   "usageStats": {
